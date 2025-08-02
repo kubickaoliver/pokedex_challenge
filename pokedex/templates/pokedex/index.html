@@ -1,0 +1,30 @@
+{% extends "pokedex/base.html" %}
+{% load static %}
+{% block content %}
+  <div class="sidebar">
+    <h3>Pokémon List</h3>
+    <div class="filters">
+      <input type="text" id="search-input" placeholder="Search by name…" />
+
+      <select id="type-select" multiple title="Filter by type"></select>
+      <select id="ability-select" multiple title="Filter by ability"></select>
+
+      <button id="apply-filters">Apply</button>
+      <button id="clear-filters">Clear</button>
+    </div>
+
+    <ul id="pokemon-list"></ul>
+    <div class="pagination-controls">
+      <button id="prev-btn" disabled>Previous</button>
+      <span id="page-indicator">Page 1</span>
+      <button id="next-btn">Next</button>
+    </div>
+  </div>
+
+  <div class="detail-panel">
+    <div id="pokemon-detail">Select a Pokémon to see details</div>
+  </div>
+{% endblock %}
+{% block extra_js %}
+  <script src="{% static 'pokedex/pokedex.js' %}"></script>
+{% endblock %}

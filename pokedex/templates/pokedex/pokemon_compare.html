@@ -1,0 +1,42 @@
+{% extends "pokedex/base.html" %}
+{% load static %}
+
+{% block content %}
+  <div class="compare-container">
+    <h3>Compare Pokémon</h3>
+
+    <div class="compare-searches">
+      <div class="search-select">
+        <label for="poke1-search">Pokémon 1:</label>
+        <input
+          type="text"
+          id="poke1-search"
+          placeholder="Type to search…"
+          list="poke1-datalist"
+          autocomplete="off"
+        />
+        <datalist id="poke1-datalist"></datalist>
+      </div>
+
+      <div class="search-select">
+        <label for="poke2-search">Pokémon 2:</label>
+        <input
+          type="text"
+          id="poke2-search"
+          placeholder="Type to search…"
+          list="poke2-datalist"
+          autocomplete="off"
+        />
+        <datalist id="poke2-datalist"></datalist>
+      </div>
+
+      <button id="compare-btn">Compare</button>
+    </div>
+
+    <div id="compare-result">Select two Pokémon to compare.</div>
+  </div>
+{% endblock %}
+
+{% block extra_js %}
+  <script src="{% static 'pokedex/pokemonCompare.js' %}"></script>
+{% endblock %}

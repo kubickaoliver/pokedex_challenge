@@ -1,0 +1,9 @@
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+lint.select = ["E", "F", "I", "D", "DJ"]
+lint.ignore = ["DJ008", "D203", "D212"]
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["F401"]  # ignore unused imports in __init__
+"*migrations/*.py" = ["F401", "D100", "D101", "E501"]  # ignore unused imports and docstring errors in migrations

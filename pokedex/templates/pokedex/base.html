@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pokédex</title>
+  <link rel="stylesheet" href="https://cdn.simplecss.org/simple.css">
+  <link rel="stylesheet" href="{% static 'pokedex/styles.css' %}">
+</head>
+<body>
+  <header class="main-header">
+    <div class="container">
+      <h1 class="logo">Pokédex Challenge</h1>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="{% url 'pokedex-home' %}" class="{% if request.resolver_match.url_name == 'pokedex-home' %}active{% endif %}">Pokédex</a></li>
+          <li><a href="{% url 'pokemon-compare' %}" class="{% if request.resolver_match.url_name == 'pokemon-compare' %}active{% endif %}">Pokémon Compare</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="layout">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer>
+    <small>&copy; 2025 Oliver Kubička / Pokedex Challenge</small>
+  </footer>
+  {% block extra_js %}{% endblock %}
+</body>
+</html>
